@@ -17,19 +17,40 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <com.github.wihlu.library.CustomProgressBar
+            android:id="@+id/cusprogressbar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            whilu:strokecolor="#ff666666"
+            whilu:fillcolor="#ff4387F0" />
+
+        <ToggleButton
+            android:id="@+id/custoggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="显示CustomProgressBar"
+            android:textOn="隐藏CustomProgressBar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
         <com.github.wihlu.library.EUIProgressBar
             android:id="@+id/progressbar"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            whilu:ringcolor="#ff0000"
-            whilu:circlecolor="#ff00ff"/>
+            whilu:ringcolor="#ff666666"
+            whilu:circlecolor="#ff3f51b5" />
 
         <ToggleButton
             android:id="@+id/toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textOff="显示"
-            android:textOn="隐藏"/>
+            android:textOff="显示EUIProgressBar"
+            android:textOn="隐藏EUIProgressBar" />
     </LinearLayout>
 
 

@@ -3,5 +3,7 @@
     <declare-styleable name="EUIProgressBar">
         <attr name="ringcolor" format="color" />
         <attr name="circlecolor" format="color" />
+        <attr name="strokecolor" format="color" />
+        <attr name="fillcolor" format="color" />
     </declare-styleable>
 </resources>

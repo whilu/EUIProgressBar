@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.github.wihlu.library.CustomProgressBar;
 import com.github.wihlu.library.EUIProgressBar;
 
 
@@ -18,7 +19,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         final EUIProgressBar progressBar = (EUIProgressBar) findViewById(R.id.progressbar);
+        final CustomProgressBar customProgressBar = (CustomProgressBar) findViewById(R.id.cusprogressbar);
         ToggleButton toggle = (ToggleButton) findViewById(R.id.toggle);
+        ToggleButton cusToggle = (ToggleButton) findViewById(R.id.custoggle);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -26,6 +29,16 @@ public class MainActivity extends ActionBarActivity {
                     progressBar.show();
                 }else {
                     progressBar.hide();
+                }
+            }
+        });
+        cusToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    customProgressBar.show();
+                }else {
+                    customProgressBar.hide();
                 }
             }
         });

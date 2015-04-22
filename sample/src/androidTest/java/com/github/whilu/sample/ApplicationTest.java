@@ -1,4 +1,4 @@
-package com.github.wihlu.euiprogressbar;
+package com.github.whilu.sample;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

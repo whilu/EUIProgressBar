@@ -2,4 +2,6 @@
 <resources>
     <color name="ringcolor">#ff666666</color>
     <color name="circlecolor">#ff4387F0</color>
+    <color name="strokecolor">#ff666666</color>
+    <color name="fillcolor">#ff4387F0</color>
 </resources>
