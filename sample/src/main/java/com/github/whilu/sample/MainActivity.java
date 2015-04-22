@@ -1,9 +1,13 @@
-package com.github.wihlu.euiprogressbar;
+package com.github.whilu.sample;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
+
+import com.github.wihlu.library.EUIProgressBar;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +16,19 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final EUIProgressBar progressBar = (EUIProgressBar) findViewById(R.id.progressbar);
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggle);
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    progressBar.show();
+                }else {
+                    progressBar.hide();
+                }
+            }
+        });
     }
 
 

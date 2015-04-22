@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EUIProgressBar">
+        <attr name="ringcolor" format="color" />
+        <attr name="circlecolor" format="color" />
+    </declare-styleable>
+</resources>
