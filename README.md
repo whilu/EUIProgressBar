@@ -27,7 +27,7 @@ xmlns:whilu="http://schemas.android.com/apk/res-auto"
 
 Then, use it
 
-1.GifImageView, use [Glide](https://github.com/bumptech/glide) loading and caching images.
+##### 1.GifImageView, use [Glide](https://github.com/bumptech/glide) loading and caching images.
 
 ```xml
 <com.github.wihlu.library.GifImageView
@@ -42,8 +42,7 @@ Then, use it
 * `whilu:strokecolor` (the ring color)
 * `whilu:fillcolor` (the arc color)
 
-
-2. CustomProgressBar
+##### 2. CustomProgressBar
 
 ```xml
 <com.github.wihlu.library.CustomProgressBar
@@ -58,8 +57,7 @@ Then, use it
 * `whilu:strokecolor` (the ring color)
 * `whilu:fillcolor` (the arc color)
 
-
-3. EUIProgressBar
+##### 3. EUIProgressBar
 
 ```xml
 <com.github.wihlu.library.EUIProgressBar
