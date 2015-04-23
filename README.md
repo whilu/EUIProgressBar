@@ -16,7 +16,7 @@ dependencies {
 
 Any problem, please send me an [email](mailto:lujunat1993@gmail.com).
 
-## Usage
+## How to use
 
 Add the namespace in the XML file:
 
