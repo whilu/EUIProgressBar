@@ -9,6 +9,7 @@ import android.widget.ToggleButton;
 
 import com.github.wihlu.library.CustomProgressBar;
 import com.github.wihlu.library.EUIProgressBar;
+import com.github.wihlu.library.GifImageView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -42,6 +43,8 @@ public class MainActivity extends ActionBarActivity {
                 }
             }
         });
+        GifImageView gifImageView = (GifImageView) findViewById(R.id.gifimageview);
+        gifImageView.showImage("http://up1.goumin.com/attachments/photo/0/0/62/16072/4114573.gif");
     }
 
 

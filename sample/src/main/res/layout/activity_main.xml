@@ -11,6 +11,14 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <com.github.wihlu.library.GifImageView
+        android:id="@+id/gifimageview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_launcher"
+        whilu:strokecolor="#ff666666"
+        whilu:fillcolor="#ff4387F0" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
