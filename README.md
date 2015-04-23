@@ -4,9 +4,9 @@ This is an easy progressbar like HuaWei EUI progressbar, and a GifImageView with
 
 ## Screenshots
 
-<img src="/CustomButton/screenshots/screenshot.gif" alt="screenshot_0" title="screenshot_0" />
+<img src="/EUIProgressBar/screenshots/screenshot.gif" alt="screenshot_0" title="screenshot_0" />
 
-###Gradle
+## Gradle
 
 ```groovy
 dependencies {
@@ -44,6 +44,7 @@ Then, use it
 
 2. CustomProgressBar
 
+```xml
 <com.github.wihlu.library.CustomProgressBar
    android:id="@+id/cusprogressbar"
    android:layout_width="100dp"
@@ -58,6 +59,7 @@ Then, use it
 
 3. EUIProgressBar
 
+```xml
 <com.github.wihlu.library.EUIProgressBar
    android:id="@+id/progressbar"
    android:layout_width="100dp"
@@ -91,7 +93,7 @@ If you have any problems, please [email me](mailto:lujunat1993@gmail.com).
 
 ### Thanks
 
-* [Glide](https://github.com/bumptech/glide)
+* [Glide](https://github.com/bumptech/glide), An image loading and caching library for Android focused on smooth scrolling.
 
 
 License
