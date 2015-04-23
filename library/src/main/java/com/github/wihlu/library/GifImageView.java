@@ -24,7 +24,7 @@ public class GifImageView extends ImageView {
     private int mWidth, mHeight;
     private int mStrokeColor, mFillColor;
     private int mRingRadius;
-    private int mInterpolatorType = 0;//默认加速
+    private int mInterpolatorType = 0;//Interpolator Type
     private float mDegress = 0;
     private float mStartAngle = 0;
     private boolean isDraw = false;
