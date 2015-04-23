@@ -4,7 +4,7 @@ This is an easy progressbar like HuaWei EUI progressbar, and a GifImageView with
 
 ## Screenshots
 
-<img src="/tree/master/screenshots/screenshot.gif" alt="screenshot_0" title="screenshot_0" />
+<img src="/screenshots/screenshot.gif" alt="screenshot_0" title="screenshot_0" />
 
 ## Gradle
 
