@@ -27,10 +27,11 @@ xmlns:whilu="http://schemas.android.com/apk/res-auto"
 
 Then, use it
 
-##### GifImageView, use [Glide](https://github.com/bumptech/glide) loading and caching images.
+##### GifImageView, use [Glide](https://github.com/bumptech/glide) loading and caching images. It's extends ImageView, you can use all the attributes and methods in ImageView.
 
 ```xml
 <com.github.wihlu.library.GifImageView
+    android:id="@+id/gifimageview"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:background="@drawable/ic_launcher"
@@ -42,6 +43,13 @@ Then, use it
 * `whilu:strokecolor` (the ring color)
 * `whilu:fillcolor` (the arc color)
 * `whilu:interpolator` (the type of interpolator, now you can use accelerate,the other interpolator(decelerate, linear, acceleratedecelerate) will soon added)
+
+load image with url
+
+```groovy
+GifImageView gifImageView = (GifImageView) findViewById(R.id.gifimageview);
+gifImageView.showImage("http://xxx.xx/test.gif");
+```
 
 #####  CustomProgressBar
 
@@ -93,13 +101,12 @@ Depending on your proguard config and usage, you may need to include the followi
 
 If you have any problems, please [email me](mailto:lujunat1993@gmail.com).
 
-### Dependencies
+## Dependencies
 
 * [Glide](https://github.com/bumptech/glide), an image loading and caching library for Android focused on smooth scrolling.
 
 
-License
-============
+## License
 
     Copyright 2015 whilu
 
