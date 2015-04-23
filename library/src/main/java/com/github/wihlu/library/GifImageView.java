@@ -6,8 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Interpolator;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -23,6 +24,7 @@ public class GifImageView extends ImageView {
     private int mWidth, mHeight;
     private int mStrokeColor, mFillColor;
     private int mRingRadius;
+    private int mInterpolatorType = 0;//默认加速
     private float mDegress = 0;
     private float mStartAngle = 0;
     private boolean isDraw = false;
@@ -33,6 +35,8 @@ public class GifImageView extends ImageView {
     private RectF mRect;
     private final static int CIRCLE_RADIUS = 37;
     private final static float STROKE_WIDTH = 7;
+    private final static float TSZ_FINAL = 18.97f;
+    private Interpolator mAccelerateInterpolator;
 
     public GifImageView(Context context){
         super(context);
@@ -72,7 +76,7 @@ public class GifImageView extends ImageView {
         //绘制圆弧
         mPaint.setColor(mFillColor);
         mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawArc(mRect, mStartAngle, mDegress, false, mPaint);
+        canvas.drawArc(mRect, mStartAngle, mAccelerateInterpolator.getInterpolation(mDegress), false, mPaint);
     }
 
     //init
@@ -82,10 +86,26 @@ public class GifImageView extends ImageView {
                 getResources().getColor(R.color.strokecolor));
         mFillColor = typedArray.getColor(R.styleable.EUIProgressBar_fillcolor,
                 getResources().getColor(R.color.fillcolor));
+        mInterpolatorType = typedArray.getInt(R.styleable.EUIProgressBar_interpolator, mInterpolatorType);
         typedArray.recycle();
         mContext = context;
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        if (mInterpolatorType == 0){
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }else if (mInterpolatorType == 1){
+//            mAccelerateInterpolator = new DecelerateInterpolator();
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }else if (mInterpolatorType == 2){
+//            mAccelerateInterpolator = new LinearInterpolator();
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }else if (mInterpolatorType == 3){
+//            mAccelerateInterpolator = new AccelerateDecelerateInterpolator();
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }else {
+//            mAccelerateInterpolator = new AccelerateDecelerateInterpolator();
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }
     }
 
     //stop draw
@@ -102,6 +122,7 @@ public class GifImageView extends ImageView {
     //start draw
     private void startDraw(){
         stopDraw();
+        mDegress = 0;
         isDraw = true;
         mTask = new TimerTask() {
             @Override
@@ -110,19 +131,24 @@ public class GifImageView extends ImageView {
                     stopDraw();
                     return;
                 }
-                if (mDegress >= 360){
-                    int tmpColor = mFillColor;
-                    mFillColor = mStrokeColor;
-                    mStrokeColor = tmpColor;
+                if (mDegress >= TSZ_FINAL){
+                    exchangeColor();
                     mStartAngle = mStartAngle >= 360 ?
                             (float)(Math.random() * 10) : mStartAngle + (float)(Math.random() * 10);
                 }
-                mDegress = mDegress >= 360 ? 0 : mDegress + 2;
+                mDegress = mDegress >= TSZ_FINAL ? 0 : (float)(mDegress + 0.1);
                 postInvalidate();
             }
         };
         mTimer = new Timer();
         mTimer.schedule(mTask, 0, 7);
+    }
+
+    //exchange color
+    private void exchangeColor(){
+        int tmpColor = mFillColor;
+        mFillColor = mStrokeColor;
+        mStrokeColor = tmpColor;
     }
 
     //set the image url and show

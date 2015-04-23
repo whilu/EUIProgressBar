@@ -5,5 +5,11 @@
         <attr name="circlecolor" format="color" />
         <attr name="strokecolor" format="color" />
         <attr name="fillcolor" format="color" />
+        <attr name="interpolator" format="enum">
+            <enum name="accelerate" value="0" />
+            <enum name="decelerate" value="1" />
+            <enum name="linear" value="2" />
+            <enum name="acceleratedecelerate" value="3" />
+        </attr>
     </declare-styleable>
 </resources>

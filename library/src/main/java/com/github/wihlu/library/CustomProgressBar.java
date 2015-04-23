@@ -7,6 +7,11 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import java.util.Timer;
@@ -20,6 +25,7 @@ public class CustomProgressBar extends ImageView {
     private int mWidth, mHeight;
     private int mStrokeColor, mFillColor;
     private int mRingRadius;
+    private int mInterpolatorType = 0;//默认加速
     private float mDegress = 0;
     private boolean isDraw = false;
     private Paint mPaint;
@@ -28,6 +34,8 @@ public class CustomProgressBar extends ImageView {
     private RectF mRect;
     private final static int CIRCLE_RADIUS = 17;
     private final static float STROKE_WIDTH = 7;
+    private final static float TSZ_FINAL = 18.97f;
+    private Interpolator mAccelerateInterpolator;
 
     public CustomProgressBar(Context context){
         super(context);
@@ -66,7 +74,7 @@ public class CustomProgressBar extends ImageView {
         //绘制圆弧
         mPaint.setColor(mFillColor);
         mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawArc(mRect, 0, mDegress, false, mPaint);
+        canvas.drawArc(mRect, 0, mAccelerateInterpolator.getInterpolation(mDegress), false, mPaint);
     }
 
     //init
@@ -76,14 +84,31 @@ public class CustomProgressBar extends ImageView {
                 getResources().getColor(R.color.strokecolor));
         mFillColor = typedArray.getColor(R.styleable.EUIProgressBar_fillcolor,
                 getResources().getColor(R.color.fillcolor));
+        mInterpolatorType = typedArray.getInt(R.styleable.EUIProgressBar_interpolator, mInterpolatorType);
         typedArray.recycle();
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        if (mInterpolatorType == 0){
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }else if (mInterpolatorType == 1){
+//            mAccelerateInterpolator = new DecelerateInterpolator();
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }else if (mInterpolatorType == 2){
+//            mAccelerateInterpolator = new LinearInterpolator();
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }else if (mInterpolatorType == 3){
+//            mAccelerateInterpolator = new AccelerateDecelerateInterpolator();
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }else {
+//            mAccelerateInterpolator = new AccelerateDecelerateInterpolator();
+            mAccelerateInterpolator = new AccelerateInterpolator();
+        }
     }
 
     //stop draw
     private void stopDraw(){
         isDraw = false;
+        mDegress = 0;
         if (mTimer != null){
             if (mTask != null){
                 mTask.cancel();
@@ -99,17 +124,22 @@ public class CustomProgressBar extends ImageView {
         mTask = new TimerTask() {
             @Override
             public void run() {
-                if (mDegress >= 360){
-                    int tmpColor = mFillColor;
-                    mFillColor = mStrokeColor;
-                    mStrokeColor = tmpColor;
+                if (mDegress >= TSZ_FINAL){
+                    exchangeColor();
                 }
-                mDegress = mDegress >= 360 ? 0 : ++mDegress;
+                mDegress = mDegress >= TSZ_FINAL ? 0 : (float)(mDegress + 0.1);
                 postInvalidate();
             }
         };
         mTimer = new Timer();
         mTimer.schedule(mTask, 0, 7);
+    }
+
+    //exchange color
+    private void exchangeColor(){
+        int tmpColor = mFillColor;
+        mFillColor = mStrokeColor;
+        mStrokeColor = tmpColor;
     }
 
     //show the view

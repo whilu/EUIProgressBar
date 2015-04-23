@@ -41,6 +41,7 @@ Then, use it
 
 * `whilu:strokecolor` (the ring color)
 * `whilu:fillcolor` (the arc color)
+* `whilu:interpolator` (the type of `, now you can use accelerate,the other interpolator(decelerate, linear, acceleratedecelerate) will soon added)
 
 #####  CustomProgressBar
 
@@ -56,6 +57,7 @@ Then, use it
 
 * `whilu:strokecolor` (the ring color)
 * `whilu:fillcolor` (the arc color)
+* `whilu:interpolator` (the type of `, now you can use accelerate,the other interpolator(decelerate, linear, acceleratedecelerate) will soon added)
 
 ##### EUIProgressBar
 
