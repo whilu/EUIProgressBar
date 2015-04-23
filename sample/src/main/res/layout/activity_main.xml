@@ -27,8 +27,8 @@
 
         <com.github.wihlu.library.CustomProgressBar
             android:id="@+id/cusprogressbar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             whilu:strokecolor="#ff666666"
             whilu:fillcolor="#ff4387F0" />
 
@@ -48,8 +48,8 @@
 
         <com.github.wihlu.library.EUIProgressBar
             android:id="@+id/progressbar"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             whilu:ringcolor="#ff666666"
             whilu:circlecolor="#ff3f51b5" />
 
