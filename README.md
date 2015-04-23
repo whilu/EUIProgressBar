@@ -91,7 +91,7 @@ Depending on your proguard config and usage, you may need to include the followi
 
 If you have any problems, please [email me](mailto:lujunat1993@gmail.com).
 
-### Thanks
+### Dependencies
 
 * [Glide](https://github.com/bumptech/glide), an image loading and caching library for Android focused on smooth scrolling.
 
